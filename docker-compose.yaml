@@ -1,0 +1,14 @@
+version: "3.6"
+services:
+
+  libreoffice-app:
+    image: collabora/code:6.4.8.4
+    container_name: libreoffice-app
+    expose:
+    - 9980
+    ports:
+    - "9980:9980"
+    environment:
+    - username=lake-monster
+    - password=Ch@mpl@1n!26
+    restart: always
