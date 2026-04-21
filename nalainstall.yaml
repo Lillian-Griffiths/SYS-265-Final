@@ -1,0 +1,8 @@
+---
+- name: Install package via nala
+  hosts: util-lake
+  become: true
+  tasks:
+    - name: install package
+      ansible.builtin.command:
+        cmd: "nala install -y vim"

@@ -1,0 +1,12 @@
+---
+- name: Create new Linux User
+  hosts: linux
+  become: yes
+  tasks:
+    - name:
+      ansible.builtin.user:
+        name: test
+        shell: /bin/bash
+        create_home: yes
+        state: present
+        password: "{{ 'passwd' | password_hash('sha512') }}"

@@ -1,0 +1,22 @@
+---
+- name: Create windows domain user
+  hosts: dc01-lake
+  gather_facts: no
+  vars_prompt:
+    - name: "domain_user_password"
+      prompt: "Enter password for new user"
+      private: yes
+  tasks:
+    - name: Create user
+      community.windows.win_domain_user:
+        name: test_user
+        password: "{{ domain_user_password }}"
+        firstname: test
+        surname: user
+        upn: test_user@lake.local
+        state: present
+        enabled: yes
+        password_never_expires: yes
+      become: yes
+      become_method: runas
+      become_user: Administrator
