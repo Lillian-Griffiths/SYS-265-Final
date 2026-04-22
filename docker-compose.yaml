@@ -9,6 +9,6 @@ services:
     ports:
     - "9980:9980"
     environment:
-    - username=lake-monster
-    - password=Ch@mpl@1n!26
+    - username=admin
+    - password=admin
     restart: always
